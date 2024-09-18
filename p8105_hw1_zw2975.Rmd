@@ -3,27 +3,33 @@ title: "P8105 Homework 1 (zw2975)"
 output: github_document
 ---
 
-# Setup
-
 ```{r library, include = FALSE}
 # load library
 library(palmerpenguins)
 ```
 
-# Problem 1
+## Problem 1
 
 ```{r get data from package}
 data("penguins", package = "palmerpenguins")
 ```
-### short descirption of the penguins dataset:
+#### short descirption of the penguins dataset:
 The `Penguins` dataset has variables `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `body_mass_g`, `sex`, and `year`.
 This dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 The mean flipper length of this dataset is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
+## Problem 2
 
-```{r making scatterplot}
-
+```{r load library ggplot2, include = FALSE}
+library(ggplot2) #for graphing scatterplot
 ```
 
-# Problem 2
+```{r making scatterplot, warning = FALSE}
+ggplot(penguins, aes(x = bill_length_mm , y = flipper_length_mm, color = species)) +
+  geom_point() + 
+  labs(title = "Bill length vs. flipper length for different species", 
+       x = "Bill length in mm",
+       y = "Flipper length in mm")
+```
+
 
