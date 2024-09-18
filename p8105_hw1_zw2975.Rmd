@@ -16,8 +16,9 @@ library(palmerpenguins)
 data("penguins", package = "palmerpenguins")
 ```
 ### short descirption of the penguins dataset:
-The dataset Penguins has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
-
+The `Penguins` dataset has variables `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `body_mass_g`, `sex`, and `year`.
+This dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+The mean flipper length of this dataset is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
 
 ```{r making scatterplot}
