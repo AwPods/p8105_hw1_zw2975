@@ -11,6 +11,7 @@ library(palmerpenguins)
 ## Problem 1
 
 ```{r get data from package}
+# load the dataset from package
 data("penguins", package = "palmerpenguins")
 ```
 #### short descirption of the penguins dataset:
@@ -18,18 +19,22 @@ The `Penguins` dataset has variables `species`, `island`, `bill_length_mm`, `bil
 This dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 The mean flipper length of this dataset is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
-## Problem 2
-
+#### Scatter plot for bill length vs. flipper length
 ```{r load library ggplot2, include = FALSE}
 library(ggplot2) #for graphing scatterplot
 ```
 
 ```{r making scatterplot, warning = FALSE}
-ggplot(penguins, aes(x = bill_length_mm , y = flipper_length_mm, color = species)) +
+# saving the plot with a name
+bill_flipper <- ggplot(penguins, aes(x = bill_length_mm , y = flipper_length_mm, color = species)) +
   geom_point() + 
   labs(title = "Bill length vs. flipper length for different species", 
        x = "Bill length in mm",
        y = "Flipper length in mm")
-```
 
+print(bill_flipper) #display the scatterplot
+
+ggsave("bill_flipper.png") #saving plot in project
+```
+## Problem 2
 
