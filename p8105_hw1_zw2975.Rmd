@@ -3,17 +3,26 @@ title: "P8105 Homework 1 (zw2975)"
 output: github_document
 ---
 
-# Section 1
+# Setup
 
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
-```{r}
-samp = rnorm(100)
-length(samp)
+```{r library, include = FALSE}
+# load library
+library(palmerpenguins)
 ```
 
-# Section 2
+# Problem 1
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+```{r get data from package}
+data("penguins", package = "palmerpenguins")
+```
+### short descirption of the penguins dataset:
+The dataset Penguins has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+
+
+
+```{r making scatterplot}
+
+```
+
+# Problem 2
+
