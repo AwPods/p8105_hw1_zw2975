@@ -44,15 +44,49 @@ library(tidyverse)
 ```{r create dataframe}
 dataframe <- tibble(
   x = rnorm(10), # it has a size 10 with standard normal distribution
-  vec_logical = x > 10, # True if x>10, false if x<10
+  vec_logical = x > 10, # True if x>10, false if x is not >10
   vec_char = c("Hello", "my", "name", "is", "Zhiyu","Wei", "nice", "to", "meet", "you"), # 10 characters
-  vec_factor = c("level 1", "level 2", "level 3","level 1", "level 2", "level 3", "level 1", "level 2", "level 3", "level 3" )) # 3 factor levels assigned to each character
+  vec_factor = c("1", "2", "3","1", "2", "3", "1", "2", "3", "3" )) # 3 factor levels assigned to each character
 ```
 
 
-```{r take mean}
-# try to take mean
+```{r take mean, warning = FALSE}
+# try to take mean for each variable
+# mean of the numeric variable
+mean(dataframe 
+     %>% pull(x))
+# mean = 0.09992325
 
+# mean of the logical variable
+mean(dataframe 
+     %>% pull(vec_logical))
+# mean = 0
+
+# mean of the character variable
+mean(dataframe 
+     %>% pull(vec_char))
+# mean is NA
+
+# mean of the factor variable
+mean(dataframe 
+     %>% pull(vec_factor))
+# mean is NA
 ```
 
+
+```{r change to numeric, echo = TRUE, results='hide', warning = FALSE}
+# logical variable to numeric
+as.numeric(dataframe$vec_logical)
+
+# character variable to numeric
+as.numeric(dataframe$vec_char)
+
+# factor variable to numeric
+as.numeric(dataframe$vec_factor)
+```
+#### What happened?
+I got a warning saying that NAs are created due to coercion. 
+The logical variable all became 0.
+The character variable all became NA.
+The factor variable has numeric values now but that is because the levels were originally set to be numbers. 
 
