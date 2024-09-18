@@ -1,6 +1,6 @@
 ---
 title: "P8105 Homework 1 (zw2975)"
-output: html_document
+output: github_document
 ---
 
 # Section 1
